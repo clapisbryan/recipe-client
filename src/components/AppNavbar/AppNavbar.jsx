@@ -29,14 +29,16 @@ const AppNavbar = () => {
 							<li className="nav-item">
 								<Link className="nav-link" aria-current="page" to="/create-recipe">Create Recipe</Link>
 							</li>
-							<li className="nav-item">
-								<Link className="nav-link" aria-current="page" to="/saved-recipe">Saved Recipe</Link>
-							</li>
 							{!cookies.access_token ?
 								<li className="nav-item">
 									<Link className="nav-link" aria-current="page" to="/auth">Login/Register</Link>
 								</li> :
-								<button className="btn btn-danger btn-sm my-1" onClick={handleLogout}>Logout</button>
+								<>
+									<li className="nav-item">
+										<Link className="nav-link" aria-current="page" to="/saved-recipe">Saved Recipe</Link>
+									</li>
+									<button className="btn btn-danger btn-sm my-1" onClick={handleLogout}>Logout</button>
+								</>
 							}
 						</ul>
 					</div>
