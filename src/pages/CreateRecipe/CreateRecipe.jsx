@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createRecipe } from '../../services/apiRecipeService/apiRecipeService';
 import { useGetUserID } from '../../hooks/useGetUserID';
 import { useCookies } from 'react-cookie';
-
+import Swal from 'sweetalert2';
 
 const CreateRecipe = () => {
   const [cookies, _] = useCookies(["access_token"]);
@@ -52,8 +52,19 @@ const CreateRecipe = () => {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     const response = await createRecipe(recipe, cookies);
-    console.log("Recipe Created", response);
-    navigate("/");
+    if (response) {
+      Swal.fire({
+        title: "Recipe",
+        text: "Recipe Created Successfully",
+        icon: "success"
+      });
+      navigate("/");
+    }
+    Swal.fire({
+      title: "Recipe",
+      text: "Recipe Created Failed",
+      icon: "error"
+    });
   }
 
   return (
