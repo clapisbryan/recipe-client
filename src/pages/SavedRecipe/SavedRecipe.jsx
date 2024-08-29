@@ -14,7 +14,7 @@ const SavedRecipe = () => {
 
   const fetchSavedRecipe = async () => {
     const response = await getSavedRecipeByUserId(userID, cookies);
-    setSavedRecipe(response.savedRecipes);
+    setSavedRecipe(response.savedRecipes || []);
   }
 
   return (

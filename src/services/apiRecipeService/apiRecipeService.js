@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCookies } from "react-cookie"
 
-const API_URL = "http://localhost:3001/recipes"
+const API_URL = `${import.meta.env.VITE_URL}/recipes`
 
 
 export const getRecipe = async () => {

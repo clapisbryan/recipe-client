@@ -30,7 +30,7 @@ const Home = () => {
 			console.log("Already saved")
 		} else {
 			const response = await putRecipeById({ recipeID, userID, cookies });
-			setSavedRecipe(response.savedRecipe);
+			setSavedRecipe(response.savedRecipe || []);
 		}
 	}
 	const isRecipeSaved = (id) => savedRecipe.includes(id);
