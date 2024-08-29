@@ -59,12 +59,14 @@ const CreateRecipe = () => {
         icon: "success"
       });
       navigate("/");
+    } else {
+      Swal.fire({
+        title: "Recipe",
+        text: "Recipe Created Failed",
+        icon: "error"
+      });
     }
-    Swal.fire({
-      title: "Recipe",
-      text: "Recipe Created Failed",
-      icon: "error"
-    });
+
   }
 
   return (
