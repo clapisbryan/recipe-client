@@ -48,14 +48,16 @@ const Home = () => {
 							<div className="col-12 col-md-4 mb-3" key={recipe._id}>
 								<div className="card">
 									<div className="card-body">
-										<h2>{recipe.name}</h2>
 										{cookies.access_token &&
-											<button
-												className={`btn btn-sm ${isRecipeSaved(recipe._id) ? "btn-secondary" : "btn-primary"}`}
-												onClick={() => saveRecipe(recipe._id)}
-												disabled={isRecipeSaved(recipe._id)}
-											>{isRecipeSaved(recipe._id) ? "Saved" : "Save"}</button>
+											<div className="text-end">
+												<button
+													className={`btn btn-sm ${isRecipeSaved(recipe._id) ? "btn-secondary" : "btn-primary"}`}
+													onClick={() => saveRecipe(recipe._id)}
+													disabled={isRecipeSaved(recipe._id)}
+												>{isRecipeSaved(recipe._id) ? "Saved" : "Save"}</button>
+											</div>
 										}
+										<h2>{recipe.name}</h2>
 										<div className="ingredients">
 											<ul>
 												{recipe.ingredients.map((ingredient, idx) => {
