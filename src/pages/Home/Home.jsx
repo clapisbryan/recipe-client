@@ -34,6 +34,10 @@ const Home = () => {
 		}
 	}
 	const isRecipeSaved = (id) => savedRecipe.includes(id);
+
+	console.log("recipe", recipe);
+
+
 	return (
 		<>
 			<div className="container">
@@ -52,6 +56,13 @@ const Home = () => {
 												disabled={isRecipeSaved(recipe._id)}
 											>{isRecipeSaved(recipe._id) ? "Saved" : "Save"}</button>
 										}
+										<div className="ingredients">
+											<ul>
+												{recipe.ingredients.map((ingredient, idx) => {
+													return <li key={idx}>{ingredient}</li>
+												})}
+											</ul>
+										</div>
 										<div className="instruction">
 											<p>{recipe.instruction}</p>
 										</div>
